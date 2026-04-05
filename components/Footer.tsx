@@ -1,23 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
-  const Logo = () => (
-    <svg
-      className="w-6 h-6"
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8 24L16 8L24 24M12 20H20M10 24H22"
-        stroke="#FFFFFF"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-
   const currentYear = new Date().getFullYear();
 
   return (
@@ -26,9 +10,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo & Company */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Logo />
-              <span className="font-bold text-lg">buildla</span>
+            <div className="mb-4">
+              <Image
+                src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/7bdba433-d213-4149-b662-742fe58210ff/Buildla.png"
+                alt="Buildla"
+                width={100}
+                height={33}
+                className="h-8 w-auto"
+              />
             </div>
             <p className="text-gray-300 text-sm">
               Renovering med fast pris, garanterat resultat och personlig projektledning.
