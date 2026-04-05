@@ -83,11 +83,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+46701234567" className="hover:text-white transition-colors">
-                  +46 70 123 45 67
+                <a href="tel:+46721731730" className="hover:text-white transition-colors">
+                  072-173 17 30
                 </a>
               </li>
-              <li>Stockholm, Sverige</li>
+              <li>Klarälvsvägen 40, 128 44 Bagarmossen</li>
             </ul>
           </div>
         </div>
@@ -95,7 +95,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-gray-700 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300">
-            <p>&copy; {currentYear} Buildla AB. Alla rättigheter förbehållna.</p>
+            <p>&copy; {currentYear} Folkbostaden Stockholm AB. Alla rättigheter förbehållna.</p>
             <div className="flex gap-6 mt-4 md:mt-0">
               <a href="#" className="hover:text-white transition-colors">
                 Integritetspolicy

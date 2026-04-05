@@ -113,75 +113,21 @@ export default function Home() {
 
           {/* Top Row - 5 Services */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
-            {/* Byta golv */}
-            <div className="relative h-48 rounded-lg overflow-hidden group cursor-pointer">
-              <Image
-                src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/e91e4c18-faf6-42ef-93cb-fb2c28691886/P1133915-2.jpg"
-                alt="Byta golv"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-              <div className="absolute inset-0 flex items-end p-6">
-                <h3 className="text-white font-semibold text-lg">Byta golv</h3>
-              </div>
-            </div>
-
-            {/* Köksrenovering */}
-            <div className="relative h-48 rounded-lg overflow-hidden group cursor-pointer">
-              <Image
-                src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/ee8a0e98-56e5-4526-82fe-589e7cf861e8/rimage.php-14.jpeg"
-                alt="Köksrenovering"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-              <div className="absolute inset-0 flex items-end p-6">
-                <h3 className="text-white font-semibold text-lg">Köksrenovering</h3>
-              </div>
-            </div>
-
-            {/* Renovera badrum */}
-            <div className="relative h-48 rounded-lg overflow-hidden group cursor-pointer">
-              <Image
-                src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/485a6134-a15d-4607-9ad7-0dd6e4811d81/_Z9A5655-HDR.jpg"
-                alt="Renovera badrum"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-              <div className="absolute inset-0 flex items-end p-6">
-                <h3 className="text-white font-semibold text-lg">Renovera badrum</h3>
-              </div>
-            </div>
-
-            {/* Måla och tapetsera */}
-            <div className="relative h-48 rounded-lg overflow-hidden group cursor-pointer">
-              <Image
-                src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/ff2e3ae3-80b4-465f-a3f3-f3e8eea2da6c/P1133879-3.jpg"
-                alt="Måla och tapetsera"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-              <div className="absolute inset-0 flex items-end p-6">
-                <h3 className="text-white font-semibold text-lg">Måla och tapetsera</h3>
-              </div>
-            </div>
-
-            {/* Altan */}
-            <div className="relative h-48 rounded-lg overflow-hidden group cursor-pointer">
-              <Image
-                src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/df07c8a2-e9e3-4ef9-ae3d-8ca5e3b29f8d/altan.jpg"
-                alt="Altan"
-                fill
-                className="object-cover group-hover:scale-105 transition-transform"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-              <div className="absolute inset-0 flex items-end p-6">
-                <h3 className="text-white font-semibold text-lg">Altan</h3>
-              </div>
-            </div>
+            {[
+              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/e91e4c18-faf6-42ef-93cb-fb2c28691886/P1133915-2.jpg', alt: 'Byta golv', label: 'Byta golv' },
+              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/ee8a0e98-56e5-4526-82fe-589e7cf861e8/rimage.php-14.jpeg', alt: 'Köksrenovering', label: 'Köksrenovering' },
+              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/485a6134-a15d-4607-9ad7-0dd6e4811d81/_Z9A5655-HDR.jpg', alt: 'Renovera badrum', label: 'Renovera badrum' },
+              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/ff2e3ae3-80b4-465f-a3f3-f3e8eea2da6c/P1133879-3.jpg', alt: 'Måla och tapetsera', label: 'Måla och tapetsera' },
+              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/df07c8a2-e9e3-4ef9-ae3d-8ca5e3b29f8d/altan.jpg', alt: 'Altan', label: 'Altan' },
+            ].map((service, idx) => (
+              <a key={idx} href="https://buildla.se/ai-assistant" className="relative h-48 rounded-lg overflow-hidden group cursor-pointer block">
+                <Image src={service.src} alt={service.alt} fill className="object-cover group-hover:scale-105 transition-transform" />
+                <div className="absolute inset-0 bg-white/40 group-hover:bg-white/50 transition-colors"></div>
+                <div className="absolute inset-0 flex items-end p-6">
+                  <h3 className="text-buildla-dark font-semibold text-lg">{service.label}</h3>
+                </div>
+              </a>
+            ))}
           </div>
 
           {/* Categories Section */}
@@ -190,61 +136,20 @@ export default function Home() {
               Kategorier
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* Arkitekt */}
-              <div className="relative h-40 rounded-lg overflow-hidden group cursor-pointer">
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/03e9f3e2-4e6f-484a-ae25-aba3b8e3ce4e/arkitekt.jpg"
-                  alt="Arkitekt"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-                <div className="absolute inset-0 flex items-end p-6">
-                  <p className="text-white font-semibold">Arkitekt</p>
-                </div>
-              </div>
-
-              {/* Ny- & tillbyggnad */}
-              <div className="relative h-40 rounded-lg overflow-hidden group cursor-pointer">
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/b1cb0ea7-bb45-481e-9e9b-2ee6f8d5e99b/rimage.php-13.jpeg"
-                  alt="Ny- & tillbyggnad"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-                <div className="absolute inset-0 flex items-end p-6">
-                  <p className="text-white font-semibold">Ny- & tillbyggnad</p>
-                </div>
-              </div>
-
-              {/* Renovera inomhus */}
-              <div className="relative h-40 rounded-lg overflow-hidden group cursor-pointer">
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/7c10e5b6-d6e1-434a-b4b1-eff22b4f455b/renoverainomhus.jpg"
-                  alt="Renovera inomhus"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-                <div className="absolute inset-0 flex items-end p-6">
-                  <p className="text-white font-semibold">Renovera inomhus</p>
-                </div>
-              </div>
-
-              {/* Renovera utomhus */}
-              <div className="relative h-40 rounded-lg overflow-hidden group cursor-pointer">
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/b50bc77b-bdcf-408c-b6f1-b8e15e4e33e1/renoverautomhus.jpg"
-                  alt="Renovera utomhus"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
-                <div className="absolute inset-0 flex items-end p-6">
-                  <p className="text-white font-semibold">Renovera utomhus</p>
-                </div>
-              </div>
+              {[
+                { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/03e9f3e2-4e6f-484a-ae25-aba3b8e3ce4e/arkitekt.jpg', alt: 'Arkitekt', label: 'Arkitekt' },
+                { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/b1cb0ea7-bb45-481e-9e9b-2ee6f8d5e99b/rimage.php-13.jpeg', alt: 'Ny- & tillbyggnad', label: 'Ny- & tillbyggnad' },
+                { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/7c10e5b6-d6e1-434a-b4b1-eff22b4f455b/renoverainomhus.jpg', alt: 'Renovera inomhus', label: 'Renovera inomhus' },
+                { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/b50bc77b-bdcf-408c-b6f1-b8e15e4e33e1/renoverautomhus.jpg', alt: 'Renovera utomhus', label: 'Renovera utomhus' },
+              ].map((category, idx) => (
+                <a key={idx} href="https://buildla.se/ai-assistant" className="relative h-40 rounded-lg overflow-hidden group cursor-pointer block">
+                  <Image src={category.src} alt={category.alt} fill className="object-cover group-hover:scale-105 transition-transform" />
+                  <div className="absolute inset-0 bg-white/40 group-hover:bg-white/50 transition-colors"></div>
+                  <div className="absolute inset-0 flex items-end p-6">
+                    <p className="text-buildla-dark font-semibold">{category.label}</p>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -259,13 +164,16 @@ export default function Home() {
                 Buildla är här för att göra byggandet till vad det borde vara.
               </h2>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                Tänk dig att köpa en bil där du betalar per timme, utan fast pris, leveransdatum eller kvalitetsgaranti — ingen skulle acceptera det. Ändå är det ofta så byggbranschen fungerar idag. Vi är här för att ändra på det.
+                Tänk dig att köpa en bil där du betalar per timme, utan fast pris, leveransdatum eller kvalitetsgaranti&mdash;ingen skulle acceptera det. Ändå är det ofta så byggbranschen fungerar idag, tidsplaner förskjuts, budgetar spricker och kunder saknar information. Branschen är trasig helt enkelt.
               </p>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                Med Buildla får du tydliga priser, kommunikation och en kvalitetsgaranti. Professionell projektledning med stöd från AI gör att hantverkarna kan fokusera på att bygga, kunderna känner sig trygga och allt bara fungerar.
+                Vi är här för att ändra på det, med hjälp av djup expertis från många år i branschen och ny teknik som AI har vi grundat Buildla, ett nytt sätt att bygga. Med Buildla får du tydliga priser, kommunikation och en kvalitetsgaranti. Professionell projektledning med stöd från AI gör att hantverkarna kan fokusera på att bygga, kunderna känner sig trygga och allt bara fungerar.
+              </p>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                Nåja, helt perfekt är det inte (än), saker dyker fortfarande upp och problem uppstår, men vi vågar påstå att vi redan har kommit en bra bit på vägen. På samma sätt som Uber har gjort det enklare och tryggare att åka taxi, vill vi göra det för byggbranschen genom att lägga till ett lager av transparens, professionalism och ansvarsskyldighet.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                På samma sätt som Uber har gjort det enklare och tryggare att åka taxi, vill vi göra det för byggbranschen genom att lägga till ett lager av transparens, professionalism och ansvarsskyldighet.
+                Vi som grundat Buildla har erfarenhet inom arkitektur, byggledning, AI och management consulting och har upplevt friktionen både som kunder och entreprenörer. Buildla är här för att göra byggandet till vad det borde vara: enkelt, pålitligt och bra. Följ med på resan, prova ett nytt sätt att bygga.
               </p>
               <a
                 href="/om-oss"
@@ -289,32 +197,47 @@ export default function Home() {
       {/* Problem/Solution Section */}
       <section className="py-16 md:py-24 bg-buildla-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-buildla-dark mb-4">
-              Vad som ofta går fel – och hur Buildla gör det rätt
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Vi förstår de vanligaste problemen när du renoverar hemmet. Här är hur vi löser dem.
-            </p>
+          {/* Section header + intro */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <div className="relative h-72 lg:h-auto rounded-lg overflow-hidden">
+              <Image
+                src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/1711442131416-AJL2FYKOCIFWB1RP1OGA/image-asset.jpeg"
+                alt="Buildla projekt"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-buildla-dark mb-6">
+                Vad som ofta går fel – och hur Buildla gör det rätt
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Många av problemen i byggbranschen handlar inte om ovilja – utan om brist på struktur, tydliga roller och kompetens. Hantverkare är experter på att bygga, men förväntas samtidigt hantera tidsplaner, kommunikation, budget och risk. Det är inte rimligt. Det är som att be en kock sköta restaurangens ekonomi, kundtjänst och marknadsföring samtidigt som hen lagar maten. Resultatet blir att saker faller mellan stolarna.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Buildla fungerar som ett gränssnitt mellan kund och hantverkare – ett operativt lager som översätter behov till genomförande, samordnar alla steg och minskar friktionen längs vägen. Vi tar ansvar för planering, kommunikation, kvalitet och uppföljning, så att du vet vad du får, vad det kostar och när det blir klart. Hantverkaren får tydliga förutsättningar att göra ett bra jobb – du får ett resultat som håller vad det lovar.
+              </p>
+            </div>
           </div>
 
           <div className="space-y-6">
             {/* Problem 1 */}
             <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent">
-              <h3 className="text-xl font-semibold text-buildla-dark mb-3">
+              <p className="text-sm font-semibold text-buildla-sage uppercase tracking-wide mb-1">Vanligt problem</p>
+              <h3 className="text-xl font-semibold text-buildla-dark mb-4">
                 Du vet inte vad det kommer att kosta
               </h3>
-              <div className="ml-4 space-y-2">
+              <div className="ml-4 space-y-3">
                 <div>
                   <p className="font-medium text-buildla-dark mb-2">Varför det händer</p>
                   <p className="text-gray-600">
-                    Många byggare arbetar på timmar eller löpande räkning. Det är enkelt för dem att börja ett projekt, men det gör det omöjligt för dig att veta slutkostnaden. Ofta dyker det upp "överraskningar" under vägen som man inte räknat med – skadade delar som behöver bytas, dolda problem bakom väggarna, eller ändringar i specifikationen.
+                    Prissättning sker ofta på känsla, utifrån individuell erfarenhet. Utan rätt struktur och historisk data att utgå ifrån blir resultatet en gissningslek med hög risk för både utförare och kund.
                   </p>
                 </div>
                 <div>
                   <p className="font-medium text-buildla-dark mb-2">Hur Buildla löser det</p>
                   <p className="text-gray-600">
-                    Vi använder AI, historisk data och djupa kunskaper om byggbranschen för att ge dig ett fast pris innan vi börjar. Det priset är garanterat – om något oväntad dyker upp, tar vi kostnaden. Du vet exakt vad allt kostar innan du skriver under.
+                    Vi ger fast pris i förväg baserat på projektets faktiska parametrar. Vår AI-baserade kalkylmotor garanterar rättvis och tydlig prissättning för båda parter, baserat på liknande projekt.
                   </p>
                 </div>
               </div>
@@ -322,20 +245,21 @@ export default function Home() {
 
             {/* Problem 2 */}
             <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent">
-              <h3 className="text-xl font-semibold text-buildla-dark mb-3">
+              <p className="text-sm font-semibold text-buildla-sage uppercase tracking-wide mb-1">Vanligt problem</p>
+              <h3 className="text-xl font-semibold text-buildla-dark mb-4">
                 Tidsplanen spricker
               </h3>
-              <div className="ml-4 space-y-2">
+              <div className="ml-4 space-y-3">
                 <div>
                   <p className="font-medium text-buildla-dark mb-2">Varför det händer</p>
                   <p className="text-gray-600">
-                    De flesta byggprojekt startar utan någon ordentlig plan. Byggarna får ett uppdrag, kommer när de kan, och gissar på hur lång tid det tar. Om de får ett annat luckerativt jobb på vägen, sätter de det här på pausad. Inga deadlines, ingen konsekvens för att inte hålla tiden.
+                    Dålig planering, bristande koordinering mellan hantverkare och dubbelbokningar. Kommunikation sker ofta via sms och telefonsamtal direkt med hantverkaren, vilket gör det svårt att få överblick och ha koll på vad som sagts.
                   </p>
                 </div>
                 <div>
                   <p className="font-medium text-buildla-dark mb-2">Hur Buildla löser det</p>
                   <p className="text-gray-600">
-                    Vi planerar allt i förväg – material, arbetskraft, tidslinjer. Vi har dedikerad projektledning som säkerställer att alla vet när och hur allt ska genomföras. Vi bokar byggarna specifika datum och garanterar att de är där. Om något går fel, har vi en backup-plan. Du vet exakt när vi kommer och när vi är klara.
+                    Du får en realistisk tidplan och löpande uppföljning under projektets gång. Vi inkluderar alltid professionell projektledning så att du har en tydlig kontaktyta och får löpande statusuppdateringar digitalt.
                   </p>
                 </div>
               </div>
@@ -343,20 +267,21 @@ export default function Home() {
 
             {/* Problem 3 */}
             <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent">
-              <h3 className="text-xl font-semibold text-buildla-dark mb-3">
+              <p className="text-sm font-semibold text-buildla-sage uppercase tracking-wide mb-1">Vanligt problem</p>
+              <h3 className="text-xl font-semibold text-buildla-dark mb-4">
                 Otydligt ansvar om något går fel
               </h3>
-              <div className="ml-4 space-y-2">
+              <div className="ml-4 space-y-3">
                 <div>
                   <p className="font-medium text-buildla-dark mb-2">Varför det händer</p>
                   <p className="text-gray-600">
-                    Om något går fel under konstruktionen – ett misstag, en skada, något som inte motsvarar specifikationen – är det ofta otydligt vem som är ansvarig. Byggaren säger att materialleverantören hade fel material. Materialleverantören säger att byggaren använde det fel. Du hamnar i mitten och måste själv försöka lösa det.
+                    Otydliga kontrakt och uppdragsbeskrivningar gör det oklart vem som är ansvarig – hantverkare, underentreprenör eller kunden själv.
                   </p>
                 </div>
                 <div>
                   <p className="font-medium text-buildla-dark mb-2">Hur Buildla löser det</p>
                   <p className="text-gray-600">
-                    Vi tar ansvar för allt – från material till slutförande. Du behöver bara kontakta oss. Vi löser det, eller betalar för att få det löst. Vi ger 5 års garanti på allt arbete, vilket betyder att vi står bakom det vi gör långt efter projektets slut. Du vet exakt vem du ska ringa om något inte är rätt.
+                    Buildla tar ansvar för hela projektleveransen och använder enkla, tydliga kontrakt där det framgår vem som ansvarar för vad mellan kunden och Buildla. Om det ändå skulle uppstå oklarheter används en oberoende byggnadsinspektör som granskar kontrakt och leverans.
                   </p>
                 </div>
               </div>
@@ -364,20 +289,21 @@ export default function Home() {
 
             {/* Problem 4 */}
             <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent">
-              <h3 className="text-xl font-semibold text-buildla-dark mb-3">
+              <p className="text-sm font-semibold text-buildla-sage uppercase tracking-wide mb-1">Vanligt problem</p>
+              <h3 className="text-xl font-semibold text-buildla-dark mb-4">
                 Krångligt och tidskrävande att jämföra och beställa
               </h3>
-              <div className="ml-4 space-y-2">
+              <div className="ml-4 space-y-3">
                 <div>
                   <p className="font-medium text-buildla-dark mb-2">Varför det händer</p>
                   <p className="text-gray-600">
-                    Idag måste du ringa eller maila ett dussin olika byggare för att få offerter. Vart erbjudande ser olika ut – andra priser, andra villkor, andra garantier. Du kan inte jämföra äpplen med äpplen. Och sen måste du förhandla, maila fram och tillbaka, och i slutändan förlita dig på att det blir gjort.
+                    Offertprocessen är manuell och omständig, det är svårt att få en överblick av vad som ingår. Ofta behöver du som kund själv kontakta flera entreprenörer, ta in offerter som kräver hembesök och sedan jämföra alternativen.
                   </p>
                 </div>
                 <div>
                   <p className="font-medium text-buildla-dark mb-2">Hur Buildla löser det</p>
                   <p className="text-gray-600">
-                    Allt går online. Du svarar på några enkla frågor i vår app, och på några minuter får du ett fast pris och en detaljerad offert. Du godkänner den direkt i mobilen och kan följa projektet från början till slut utan att behöva ringa eller skicka e-post. Allt är digitalt, enkelt och transparent.
+                    Du får ett fast pris direkt online baserat på tydliga projektdefinitioner. Ingen behöver komma hem till dig, och du slipper försöka tolka och jämföra olika upplägg. Allt sker digitalt – du kan beställa med mobilen. Det sparar tid både för dig och hantverkaren.
                   </p>
                 </div>
               </div>
@@ -385,20 +311,21 @@ export default function Home() {
 
             {/* Problem 5 */}
             <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent">
-              <h3 className="text-xl font-semibold text-buildla-dark mb-3">
+              <p className="text-sm font-semibold text-buildla-sage uppercase tracking-wide mb-1">Vanligt problem</p>
+              <h3 className="text-xl font-semibold text-buildla-dark mb-4">
                 Kvalitetsbrister i utförandet
               </h3>
-              <div className="ml-4 space-y-2">
+              <div className="ml-4 space-y-3">
                 <div>
                   <p className="font-medium text-buildla-dark mb-2">Varför det händer</p>
                   <p className="text-gray-600">
-                    Många byggare jobbar under tidspress och ekonomisk press. De behöver bara komma vidare till nästa jobb. Det finns ingen incitament för att göra det extra bra, och ingen slutkontroll av någon oberoende part. Ofta märker du problemen först senare – en fogning som spricker, paint som började skala av, eller något som inte ligger rätt.
+                    Det saknas struktur för att styra kvalitet och följa upp arbetet.
                   </p>
                 </div>
                 <div>
                   <p className="font-medium text-buildla-dark mb-2">Hur Buildla löser det</p>
                   <p className="text-gray-600">
-                    Vi har en grundlig slutkontroll hvor både byggaren och en oberoende projektledare kollar allt. Vi använder checklistor och fotograferar allt för att dokumentera standarden. Vi betalar byggarna baserat på att de gör det rätt, inte bara på att de blir klara. Och vi ger 5 års garanti så vi måste själva laga allt som inte håller kvalitet.
+                    Vi har en process för kvalitetskontroll före, under och efter projekt. Betalning sker först när arbetet är färdigt och utfört med rätt kvalitet. Vid tveksamheter anlitas en oberoende byggnadsinspektör.
                   </p>
                 </div>
               </div>
@@ -470,12 +397,9 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
             Redo att börja renovera?
           </h2>
-          <p className="text-lg text-white mb-8 opacity-90">
-            Få ett personligt prisförslag direkt online. Det tar bara några minuter.
-          </p>
           <a
             href="https://buildla.se/ai-assistant"
             className="inline-block bg-buildla-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-buildla-dark transition-colors text-lg"
@@ -496,39 +420,57 @@ export default function Home() {
               <p className="text-gray-600 mb-8">
                 Har du frågor eller vill veta mer om Buildla? Vi är här för att hjälpa.
               </p>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-semibold text-buildla-dark mb-2">Email</h3>
-                  <a
-                    href="mailto:info@buildla.se"
-                    className="text-buildla-accent hover:text-buildla-dark transition-colors"
-                  >
-                    info@buildla.se
-                  </a>
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-buildla-light flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg className="w-5 h-5 text-buildla-accent" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-buildla-dark mb-1">Email</h3>
+                    <a href="mailto:info@buildla.se" className="text-buildla-accent hover:text-buildla-dark transition-colors">
+                      info@buildla.se
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-buildla-dark mb-2">Telefon</h3>
-                  <a
-                    href="tel:+46701234567"
-                    className="text-buildla-accent hover:text-buildla-dark transition-colors"
-                  >
-                    +46 70 123 45 67
-                  </a>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-buildla-light flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg className="w-5 h-5 text-buildla-accent" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-buildla-dark mb-1">Telefon</h3>
+                    <a href="tel:+46721731730" className="text-buildla-accent hover:text-buildla-dark transition-colors">
+                      072-173 17 30
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-buildla-dark mb-2">Adress</h3>
-                  <p className="text-gray-600">
-                    Buildla AB<br />
-                    Stockholm, Sverige
-                  </p>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-buildla-light flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <svg className="w-5 h-5 text-buildla-accent" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-buildla-dark mb-1">Adress</h3>
+                    <p className="text-gray-600">
+                      Klarälvsvägen 40<br />
+                      128 44 Bagarmossen
+                    </p>
+                  </div>
+                </div>
+                <div className="pt-2 text-sm text-gray-400">
+                  Buildla är en del av Folkbostaden Stockholm AB
                 </div>
               </div>
             </div>
-            <div className="bg-buildla-light rounded-lg p-8 flex items-center justify-center">
-              <div className="text-center text-gray-400">
-                <div className="text-6xl mb-4">📍</div>
-                <p>Kontaktformulär eller karta</p>
-              </div>
+            <div className="rounded-lg overflow-hidden h-80 md:h-auto">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2040.5!2d18.1387!3d59.2783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77f0a5b7c5e1%3A0x0!2sKlar%C3%A4lvsv%C3%A4gen%2040%2C%20128%2044%20Bagarmossen!5e0!3m2!1ssv!2sse!4v1700000000000"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: '320px' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Buildla kontor"
+              ></iframe>
             </div>
           </div>
         </div>
