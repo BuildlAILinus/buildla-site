@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import FadeIn from '@/components/FadeIn';
 
 export default function Home() {
   return (
@@ -15,23 +16,29 @@ export default function Home() {
           className="object-cover"
           priority
         />
-        {/* Sage Green Overlay */}
-        <div className="absolute inset-0 bg-buildla-sage opacity-50"></div>
+        {/* Dark gradient overlay for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-buildla-dark/40 via-buildla-dark/30 to-buildla-dark/60"></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Renovering av ditt hem med fast pris, garanterat resultat, 5 års garanti och personlig projektledning.
-          </h1>
-          <p className="text-lg md:text-xl text-white mb-8 max-w-3xl mx-auto opacity-95 leading-relaxed">
-            Få ett fast pris direkt online – för badrum, golv, kök, målning och mer. Vi sköter planering, projektledning och kvalitetssäkring.
-          </p>
-          <a
-            href="https://buildla.se/ai-assistant"
-            className="inline-block bg-buildla-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-buildla-dark transition-colors text-lg"
-          >
-            Få prisförslag direkt
-          </a>
+          <FadeIn>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+              Renovering av ditt hem med fast pris, garanterat resultat, 5 års garanti och personlig projektledning.
+            </h1>
+          </FadeIn>
+          <FadeIn delay={150}>
+            <p className="text-lg md:text-xl text-white mb-10 max-w-3xl mx-auto opacity-95 leading-relaxed drop-shadow">
+              Få ett fast pris direkt online – för badrum, golv, kök, målning och mer. Vi sköter planering, projektledning och kvalitetssäkring.
+            </p>
+          </FadeIn>
+          <FadeIn delay={300}>
+            <a
+              href="https://buildla.se/ai-assistant"
+              className="inline-block bg-buildla-accent text-white px-10 py-5 rounded-lg font-semibold hover:bg-white hover:text-buildla-dark transition-all text-lg shadow-2xl hover:shadow-3xl hover:-translate-y-0.5"
+            >
+              Få prisförslag direkt →
+            </a>
+          </FadeIn>
         </div>
       </section>
 
@@ -39,62 +46,21 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* Value Prop 1 */}
-            <div className="text-center">
-              <div className="mb-6 flex justify-center">
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/3c1d44f3-17fd-48e4-acd5-652f1991aba7/shield.png"
-                  alt="Shield icon"
-                  width={60}
-                  height={60}
-                  className="w-16 h-16"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-buildla-dark mb-3">
-                Fast pris och garanti.
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Du vet vad det kostar, och arbetet är garanterat i 5 år.
-              </p>
-            </div>
-
-            {/* Value Prop 2 */}
-            <div className="text-center">
-              <div className="mb-6 flex justify-center">
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/33a78f48-4f89-44b4-827b-f45cf40eab3c/phone.png"
-                  alt="Phone icon"
-                  width={60}
-                  height={60}
-                  className="w-16 h-16"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-buildla-dark mb-3">
-                Allt sker digitalt.
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Beställ, följ upp och kommunicera direkt i mobilen.
-              </p>
-            </div>
-
-            {/* Value Prop 3 */}
-            <div className="text-center">
-              <div className="mb-6 flex justify-center">
-                <Image
-                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/a276a0c0-e1a4-45cc-bbc5-31a2c84ebbbf/worker.png"
-                  alt="Worker icon"
-                  width={60}
-                  height={60}
-                  className="w-16 h-16"
-                />
-              </div>
-              <h3 className="text-xl font-semibold text-buildla-dark mb-3">
-                Byggare som bygger. Projektledare som leder.
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Hos Buildla gör alla det de är bäst på, och vi tar ansvar för helheten.
-              </p>
-            </div>
+            {[
+              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/3c1d44f3-17fd-48e4-acd5-652f1991aba7/shield.png', alt: 'Shield', title: 'Fast pris och garanti.', desc: 'Du vet vad det kostar, och arbetet är garanterat i 5 år.' },
+              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/33a78f48-4f89-44b4-827b-f45cf40eab3c/phone.png', alt: 'Phone', title: 'Allt sker digitalt.', desc: 'Beställ, följ upp och kommunicera direkt i mobilen.' },
+              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/a276a0c0-e1a4-45cc-bbc5-31a2c84ebbbf/worker.png', alt: 'Worker', title: 'Byggare som bygger. Projektledare som leder.', desc: 'Hos Buildla gör alla det de är bäst på, och vi tar ansvar för helheten.' },
+            ].map((vp, idx) => (
+              <FadeIn key={idx} delay={idx * 150}>
+                <div className="text-center">
+                  <div className="mb-6 flex justify-center">
+                    <Image src={vp.src} alt={vp.alt} width={60} height={60} className="w-16 h-16" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-buildla-dark mb-3">{vp.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{vp.desc}</p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
@@ -102,14 +68,16 @@ export default function Home() {
       {/* Services Grid Section */}
       <section className="py-16 md:py-24 bg-buildla-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-buildla-dark mb-2">
-              Våra tjänster
-            </h2>
-            <p className="text-lg text-gray-600">
-              Toppsäljare
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-buildla-dark mb-2">
+                Våra tjänster
+              </h2>
+              <p className="text-lg text-gray-600">
+                Toppsäljare
+              </p>
+            </div>
+          </FadeIn>
 
           {/* Top Row - 5 Services */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
@@ -120,13 +88,15 @@ export default function Home() {
               { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/ff2e3ae3-80b4-465f-a3f3-f3e8eea2da6c/P1133879-3.jpg', alt: 'Måla och tapetsera', label: 'Måla och tapetsera' },
               { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/df07c8a2-e9e3-4ef9-ae3d-8ca5e3b29f8d/altan.jpg', alt: 'Altan', label: 'Altan' },
             ].map((service, idx) => (
-              <a key={idx} href="https://buildla.se/ai-assistant" className="relative h-48 rounded-lg overflow-hidden group cursor-pointer block">
-                <Image src={service.src} alt={service.alt} fill className="object-cover group-hover:scale-105 transition-transform" />
-                <div className="absolute inset-0 bg-white/40 group-hover:bg-white/50 transition-colors"></div>
-                <div className="absolute inset-0 flex items-end p-6">
-                  <h3 className="text-buildla-dark font-semibold text-lg">{service.label}</h3>
-                </div>
-              </a>
+              <FadeIn key={idx} delay={idx * 80}>
+                <a href="https://buildla.se/ai-assistant" className="relative h-48 rounded-lg overflow-hidden group cursor-pointer block shadow-md hover:shadow-xl transition-shadow">
+                  <Image src={service.src} alt={service.alt} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-white/30 to-transparent group-hover:from-white/90 transition-colors"></div>
+                  <div className="absolute inset-0 flex items-end p-6">
+                    <h3 className="text-buildla-dark font-semibold text-lg drop-shadow-sm">{service.label}</h3>
+                  </div>
+                </a>
+              </FadeIn>
             ))}
           </div>
 
@@ -142,16 +112,31 @@ export default function Home() {
                 { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/7c10e5b6-d6e1-434a-b4b1-eff22b4f455b/renoverainomhus.jpg', alt: 'Renovera inomhus', label: 'Renovera inomhus' },
                 { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/b50bc77b-bdcf-408c-b6f1-b8e15e4e33e1/renoverautomhus.jpg', alt: 'Renovera utomhus', label: 'Renovera utomhus' },
               ].map((category, idx) => (
-                <a key={idx} href="https://buildla.se/ai-assistant" className="relative h-40 rounded-lg overflow-hidden group cursor-pointer block">
-                  <Image src={category.src} alt={category.alt} fill className="object-cover group-hover:scale-105 transition-transform" />
-                  <div className="absolute inset-0 bg-white/40 group-hover:bg-white/50 transition-colors"></div>
-                  <div className="absolute inset-0 flex items-end p-6">
-                    <p className="text-buildla-dark font-semibold">{category.label}</p>
-                  </div>
-                </a>
+                <FadeIn key={idx} delay={idx * 80}>
+                  <a href="https://buildla.se/ai-assistant" className="relative h-40 rounded-lg overflow-hidden group cursor-pointer block shadow-md hover:shadow-xl transition-shadow">
+                    <Image src={category.src} alt={category.alt} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-white/30 to-transparent group-hover:from-white/90 transition-colors"></div>
+                    <div className="absolute inset-0 flex items-end p-6">
+                      <p className="text-buildla-dark font-semibold drop-shadow-sm">{category.label}</p>
+                    </div>
+                  </a>
+                </FadeIn>
               ))}
             </div>
           </div>
+
+          {/* Mid-page CTA */}
+          <FadeIn>
+            <div className="mt-16 text-center">
+              <a
+                href="https://buildla.se/ai-assistant"
+                className="inline-block bg-buildla-accent text-white px-10 py-5 rounded-lg font-semibold hover:bg-buildla-dark transition-all text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                Få ditt fasta pris direkt →
+              </a>
+              <p className="text-sm text-gray-500 mt-3">Tar bara några minuter</p>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -159,7 +144,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div>
+            <FadeIn direction="left">
               <h2 className="text-3xl md:text-4xl font-bold text-buildla-dark mb-6">
                 Buildla är här för att göra byggandet till vad det borde vara.
               </h2>
@@ -181,15 +166,17 @@ export default function Home() {
               >
                 Läs mer om varför →
               </a>
-            </div>
-            <div className="relative h-96 w-full rounded-lg overflow-hidden">
-              <Image
-                src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/1711442131416-AJL2FYKOCIFWB1RP1OGA/image-asset.jpeg"
-                alt="Om Buildla"
-                fill
-                className="object-cover"
-              />
-            </div>
+            </FadeIn>
+            <FadeIn direction="right" delay={150}>
+              <div className="relative h-96 w-full rounded-lg overflow-hidden shadow-xl">
+                <Image
+                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/1711442131416-AJL2FYKOCIFWB1RP1OGA/image-asset.jpeg"
+                  alt="Om Buildla"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -199,15 +186,17 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section header + intro */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            <div className="relative h-72 lg:h-auto rounded-lg overflow-hidden">
-              <Image
-                src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/1711442131416-AJL2FYKOCIFWB1RP1OGA/image-asset.jpeg"
-                alt="Buildla projekt"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
+            <FadeIn direction="left">
+              <div className="relative h-72 lg:h-full min-h-72 rounded-lg overflow-hidden shadow-xl">
+                <Image
+                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/1711442131416-AJL2FYKOCIFWB1RP1OGA/image-asset.jpeg"
+                  alt="Buildla projekt"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </FadeIn>
+            <FadeIn direction="right" delay={150}>
               <h2 className="text-3xl md:text-4xl font-bold text-buildla-dark mb-6">
                 Vad som ofta går fel – och hur Buildla gör det rätt
               </h2>
@@ -217,12 +206,12 @@ export default function Home() {
               <p className="text-gray-600 leading-relaxed">
                 Buildla fungerar som ett gränssnitt mellan kund och hantverkare – ett operativt lager som översätter behov till genomförande, samordnar alla steg och minskar friktionen längs vägen. Vi tar ansvar för planering, kommunikation, kvalitet och uppföljning, så att du vet vad du får, vad det kostar och när det blir klart. Hantverkaren får tydliga förutsättningar att göra ett bra jobb – du får ett resultat som håller vad det lovar.
               </p>
-            </div>
+            </FadeIn>
           </div>
 
           <div className="space-y-6">
             {/* Problem 1 */}
-            <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent">
+            <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent shadow-md hover:shadow-lg transition-shadow">
               <p className="text-sm font-semibold text-buildla-sage uppercase tracking-wide mb-1">Vanligt problem</p>
               <h3 className="text-xl font-semibold text-buildla-dark mb-4">
                 Du vet inte vad det kommer att kosta
@@ -244,7 +233,7 @@ export default function Home() {
             </div>
 
             {/* Problem 2 */}
-            <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent">
+            <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent shadow-md hover:shadow-lg transition-shadow">
               <p className="text-sm font-semibold text-buildla-sage uppercase tracking-wide mb-1">Vanligt problem</p>
               <h3 className="text-xl font-semibold text-buildla-dark mb-4">
                 Tidsplanen spricker
@@ -266,7 +255,7 @@ export default function Home() {
             </div>
 
             {/* Problem 3 */}
-            <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent">
+            <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent shadow-md hover:shadow-lg transition-shadow">
               <p className="text-sm font-semibold text-buildla-sage uppercase tracking-wide mb-1">Vanligt problem</p>
               <h3 className="text-xl font-semibold text-buildla-dark mb-4">
                 Otydligt ansvar om något går fel
@@ -288,7 +277,7 @@ export default function Home() {
             </div>
 
             {/* Problem 4 */}
-            <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent">
+            <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent shadow-md hover:shadow-lg transition-shadow">
               <p className="text-sm font-semibold text-buildla-sage uppercase tracking-wide mb-1">Vanligt problem</p>
               <h3 className="text-xl font-semibold text-buildla-dark mb-4">
                 Krångligt och tidskrävande att jämföra och beställa
@@ -310,7 +299,7 @@ export default function Home() {
             </div>
 
             {/* Problem 5 */}
-            <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent">
+            <div className="bg-white rounded-lg p-8 border-l-4 border-buildla-accent shadow-md hover:shadow-lg transition-shadow">
               <p className="text-sm font-semibold text-buildla-sage uppercase tracking-wide mb-1">Vanligt problem</p>
               <h3 className="text-xl font-semibold text-buildla-dark mb-4">
                 Kvalitetsbrister i utförandet
@@ -337,9 +326,11 @@ export default function Home() {
       {/* Projects Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-buildla-dark mb-12 text-center">
-            Våra projekt
-          </h2>
+          <FadeIn>
+            <h2 className="text-3xl md:text-4xl font-bold text-buildla-dark mb-12 text-center">
+              Våra projekt
+            </h2>
+          </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -367,17 +358,16 @@ export default function Home() {
                 alt: 'Projekt 6',
               },
             ].map((project, idx) => (
-              <div
-                key={idx}
-                className="relative h-64 rounded-lg overflow-hidden group cursor-pointer"
-              >
-                <Image
-                  src={project.src}
-                  alt={project.alt}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform"
-                />
-              </div>
+              <FadeIn key={idx} delay={idx * 100}>
+                <div className="relative h-64 rounded-lg overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-shadow">
+                  <Image
+                    src={project.src}
+                    alt={project.alt}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -397,15 +387,19 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-            Redo att börja renovera?
-          </h2>
-          <a
-            href="https://buildla.se/ai-assistant"
-            className="inline-block bg-buildla-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-buildla-dark transition-colors text-lg"
-          >
-            Få prisförslag direkt
-          </a>
+          <FadeIn>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8 drop-shadow-lg">
+              Redo att börja renovera?
+            </h2>
+          </FadeIn>
+          <FadeIn delay={150}>
+            <a
+              href="https://buildla.se/ai-assistant"
+              className="inline-block bg-buildla-accent text-white px-10 py-5 rounded-lg font-semibold hover:bg-white hover:text-buildla-dark transition-all text-lg shadow-2xl hover:-translate-y-0.5"
+            >
+              Få prisförslag direkt →
+            </a>
+          </FadeIn>
         </div>
       </section>
 
@@ -413,7 +407,7 @@ export default function Home() {
       <section id="contact-section" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
+            <FadeIn direction="left">
               <h2 className="text-3xl md:text-4xl font-bold text-buildla-dark mb-6">
                 Kontakta oss
               </h2>
@@ -459,8 +453,9 @@ export default function Home() {
                   Buildla är en del av Folkbostaden Stockholm AB
                 </div>
               </div>
-            </div>
-            <div className="rounded-lg overflow-hidden h-80 md:h-auto">
+            </FadeIn>
+            <FadeIn direction="right" delay={150}>
+            <div className="rounded-lg overflow-hidden h-80 md:h-full md:min-h-96 shadow-xl">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2040.5!2d18.1387!3d59.2783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77f0a5b7c5e1%3A0x0!2sKlar%C3%A4lvsv%C3%A4gen%2040%2C%20128%2044%20Bagarmossen!5e0!3m2!1ssv!2sse!4v1700000000000"
                 width="100%"
@@ -472,6 +467,7 @@ export default function Home() {
                 title="Buildla kontor"
               ></iframe>
             </div>
+            </FadeIn>
           </div>
         </div>
       </section>
