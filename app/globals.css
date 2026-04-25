@@ -133,15 +133,28 @@ body {
    ============================================================ */
 
 .display-lg {
-  font: 800 56px/64px var(--font-sans);
-  letter-spacing: -0.022em;
+  font: 700 40px/1.08 var(--font-sans);
+  letter-spacing: -0.028em;
   text-wrap: balance;
 }
 @media (min-width: 768px) {
-  .display-lg { font-size: 64px; line-height: 72px; }
+  .display-lg { font-size: 52px; line-height: 1.06; letter-spacing: -0.03em; }
 }
 @media (min-width: 1024px) {
-  .display-lg { font-size: 72px; line-height: 80px; letter-spacing: -0.025em; }
+  .display-lg { font-size: 64px; line-height: 1.04; letter-spacing: -0.032em; }
+}
+
+/* Hero-specific: slightly lighter weight, premium digital feel */
+.display-hero {
+  font: 600 40px/1.08 var(--font-sans);
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+@media (min-width: 768px) {
+  .display-hero { font-size: 52px; line-height: 1.06; letter-spacing: -0.03em; }
+}
+@media (min-width: 1024px) {
+  .display-hero { font-size: 60px; line-height: 1.04; letter-spacing: -0.032em; }
 }
 
 .h2-display {

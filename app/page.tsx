@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import FadeIn from '@/components/FadeIn';
+import Icon from '@/components/Icon';
 
 export default function Home() {
   return (
@@ -10,31 +11,34 @@ export default function Home() {
       <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <Image
-          src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/dbffcb17-3894-472f-bc83-9619ddbbd266/_Z9A5625-HDR.jpg"
+          src="/images/hero.webp"
           alt="Hero background"
           fill
           className="object-cover"
           priority
         />
-        {/* Dark gradient overlay for better text contrast */}
+        {/* Soft gradient overlay — focused at bottom so the room breathes at top */}
         <div
           className="absolute inset-0"
           style={{
-            background: 'linear-gradient(180deg, rgba(30,42,36,0.40) 0%, rgba(30,42,36,0.30) 50%, rgba(30,42,36,0.65) 100%)',
+            background: 'linear-gradient(180deg, rgba(30,42,36,0.20) 0%, rgba(30,42,36,0.15) 40%, rgba(30,42,36,0.55) 100%)',
           }}
         ></div>
 
         {/* Content */}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
           <FadeIn delay={100}>
-            <h1 className="display-lg text-white drop-shadow-lg" style={{ marginBottom: 24 }}>
+            <h1
+              className="display-hero text-white"
+              style={{ marginBottom: 24, textShadow: '0 2px 24px rgba(0,0,0,0.35)' }}
+            >
               Renovering av ditt hem med fast pris, garanterat resultat, 5 års garanti och personlig projektledning.
             </h1>
           </FadeIn>
           <FadeIn delay={280}>
             <p
-              className="body-lg-ds text-white drop-shadow"
-              style={{ maxWidth: 720, margin: '0 auto 40px', opacity: 0.95 }}
+              className="body-lg-ds text-white"
+              style={{ maxWidth: 640, margin: '0 auto 40px', opacity: 0.92, textShadow: '0 1px 12px rgba(0,0,0,0.3)' }}
             >
               Få ett fast pris direkt online – för badrum, golv, kök, målning och mer. Vi sköter planering, projektledning och kvalitetssäkring.
             </p>
@@ -74,29 +78,29 @@ export default function Home() {
       {/* Value Propositions Section — DS Pillars (dark accent cards) */}
       <section className="py-16 md:py-24" style={{ background: 'white' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/3c1d44f3-17fd-48e4-acd5-652f1991aba7/shield.png', alt: 'Shield', title: 'Fast pris och garanti.', desc: 'Du vet vad det kostar, och arbetet är garanterat i 5 år.' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/33a78f48-4f89-44b4-827b-f45cf40eab3c/phone.png', alt: 'Phone', title: 'Allt sker digitalt.', desc: 'Beställ, följ upp och kommunicera direkt i mobilen.' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/a276a0c0-e1a4-45cc-bbc5-31a2c84ebbbf/worker.png', alt: 'Worker', title: 'Byggare som bygger. Projektledare som leder.', desc: 'Hos Buildla gör alla det de är bäst på, och vi tar ansvar för helheten.' },
-            ].map((vp, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {([
+              { icon: 'shield' as const, title: 'Fast pris och garanti.', desc: 'Du vet vad det kostar, och arbetet är garanterat i 5 år.' },
+              { icon: 'phone' as const, title: 'Allt sker digitalt.', desc: 'Beställ, följ upp och kommunicera direkt i mobilen.' },
+              { icon: 'worker' as const, title: 'Byggare som bygger. Projektledare som leder.', desc: 'Hos Buildla gör alla det de är bäst på, och vi tar ansvar för helheten.' },
+            ]).map((vp, idx) => (
               <FadeIn key={idx} delay={idx * 80}>
                 <div
                   style={{
                     background: 'var(--buildla-accent)',
                     color: 'var(--buildla-light)',
                     borderRadius: 'var(--r-lg)',
-                    padding: '32px 28px 36px',
+                    padding: '24px 24px 28px',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: 18,
+                    gap: 14,
                     height: '100%',
                   }}
                 >
                   <div
                     style={{
-                      width: 56,
-                      height: 56,
+                      width: 44,
+                      height: 44,
                       borderRadius: 'var(--r-md)',
                       background: 'rgba(255,255,255,0.08)',
                       display: 'flex',
@@ -104,22 +108,13 @@ export default function Home() {
                       justifyContent: 'center',
                     }}
                   >
-                    <Image
-                      src={vp.src}
-                      alt={vp.alt}
-                      width={32}
-                      height={32}
-                      style={{
-                        filter: 'brightness(0) invert(1)',
-                        opacity: 0.95,
-                      }}
-                    />
+                    <Icon name={vp.icon} size={22} stroke={1.75} color="var(--buildla-light)" />
                   </div>
                   <h3
                     style={{
                       color: 'var(--buildla-light)',
                       margin: 0,
-                      font: '600 22px/1.25 var(--font-sans)',
+                      font: '600 19px/1.3 var(--font-sans)',
                       letterSpacing: '-0.01em',
                     }}
                   >
@@ -127,9 +122,9 @@ export default function Home() {
                   </h3>
                   <p
                     style={{
-                      color: 'rgba(245,245,240,0.72)',
+                      color: 'rgba(245,245,240,0.7)',
                       margin: 0,
-                      font: '400 15px/1.55 var(--font-sans)',
+                      font: '400 14px/1.55 var(--font-sans)',
                     }}
                   >
                     {vp.desc}
@@ -158,11 +153,11 @@ export default function Home() {
           {/* Top Row - 5 Services */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
             {[
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/e91e4c18-faf6-42ef-93cb-fb2c28691886/P1133915-2.jpg', alt: 'Byta golv', label: 'Byta golv' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/ee8a0e98-56e5-4526-82fe-589e7cf861e8/rimage.php-14.jpeg', alt: 'Köksrenovering', label: 'Köksrenovering' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/485a6134-a15d-4607-9ad7-0dd6e4811d81/_Z9A5655-HDR.jpg', alt: 'Renovera badrum', label: 'Renovera badrum' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/ff2e3ae3-80b4-465f-a3f3-f3e8eea2da6c/P1133879-3.jpg', alt: 'Måla och tapetsera', label: 'Måla och tapetsera' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/df07c8a2-e9e3-4ef9-ae3d-8ca5e3b29f8d/altan.jpg', alt: 'Altan', label: 'Altan' },
+              { src: '/images/service-golv.webp', alt: 'Byta golv', label: 'Byta golv' },
+              { src: '/images/service-kok.webp', alt: 'Köksrenovering', label: 'Köksrenovering' },
+              { src: '/images/service-badrum.webp', alt: 'Renovera badrum', label: 'Renovera badrum' },
+              { src: '/images/service-malning.webp', alt: 'Måla och tapetsera', label: 'Måla och tapetsera' },
+              { src: '/images/service-altan.webp', alt: 'Altan', label: 'Altan' },
             ].map((service, idx) => (
               <FadeIn key={idx} delay={idx * 80}>
                 <a
@@ -231,10 +226,10 @@ export default function Home() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/03e9f3e2-4e6f-484a-ae25-aba3b8e3ce4e/arkitekt.jpg', alt: 'Arkitekt', label: 'Arkitekt' },
-                { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/b1cb0ea7-bb45-481e-9e9b-2ee6f8d5e99b/rimage.php-13.jpeg', alt: 'Ny- & tillbyggnad', label: 'Ny- & tillbyggnad' },
-                { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/7c10e5b6-d6e1-434a-b4b1-eff22b4f455b/renoverainomhus.jpg', alt: 'Renovera inomhus', label: 'Renovera inomhus' },
-                { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/b50bc77b-bdcf-408c-b6f1-b8e15e4e33e1/renoverautomhus.jpg', alt: 'Renovera utomhus', label: 'Renovera utomhus' },
+                { src: '/images/kategori-arkitekt.webp', alt: 'Arkitekt', label: 'Arkitekt' },
+                { src: '/images/kategori-tillbyggnad.webp', alt: 'Ny- & tillbyggnad', label: 'Ny- & tillbyggnad' },
+                { src: '/images/kategori-inomhus.webp', alt: 'Renovera inomhus', label: 'Renovera inomhus' },
+                { src: '/images/kategori-utomhus.webp', alt: 'Renovera utomhus', label: 'Renovera utomhus' },
               ].map((category, idx) => (
                 <FadeIn key={idx} delay={idx * 80}>
                   <a
@@ -375,7 +370,7 @@ export default function Home() {
                 }}
               >
                 <Image
-                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/1711442131416-AJL2FYKOCIFWB1RP1OGA/image-asset.jpeg"
+                  src="/images/om-buildla.webp"
                   alt="Om Buildla"
                   fill
                   className="object-cover"
@@ -404,7 +399,7 @@ export default function Home() {
                 className="lg:h-full"
               >
                 <Image
-                  src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/1711442131416-AJL2FYKOCIFWB1RP1OGA/image-asset.jpeg"
+                  src="/images/problem-solution.webp"
                   alt="Buildla projekt"
                   fill
                   className="object-cover"
@@ -509,12 +504,12 @@ export default function Home() {
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/e91e4c18-faf6-42ef-93cb-fb2c28691886/P1133915-2.jpg', alt: 'Projekt 1' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/ee8a0e98-56e5-4526-82fe-589e7cf861e8/rimage.php-14.jpeg', alt: 'Projekt 2' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/485a6134-a15d-4607-9ad7-0dd6e4811d81/_Z9A5655-HDR.jpg', alt: 'Projekt 3' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/ff2e3ae3-80b4-465f-a3f3-f3e8eea2da6c/P1133879-3.jpg', alt: 'Projekt 4' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/df07c8a2-e9e3-4ef9-ae3d-8ca5e3b29f8d/altan.jpg', alt: 'Projekt 5' },
-              { src: 'https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/1cee3b8b-84e8-4c51-a36f-fb72226a2a3b/Buildla+app.png', alt: 'Projekt 6' },
+              { src: '/images/projekt-1.webp', alt: 'Projekt 1' },
+              { src: '/images/projekt-2.webp', alt: 'Projekt 2' },
+              { src: '/images/projekt-3.webp', alt: 'Projekt 3' },
+              { src: '/images/projekt-4.webp', alt: 'Projekt 4' },
+              { src: '/images/projekt-5.webp', alt: 'Projekt 5' },
+              { src: '/images/projekt-6.webp', alt: 'Projekt 6' },
             ].map((project, idx) => (
               <FadeIn key={idx} delay={Math.min(idx, 3) * 80}>
                 <div
@@ -558,7 +553,7 @@ export default function Home() {
       <section className="relative min-h-96 flex items-center justify-center overflow-hidden py-16 md:py-24">
         {/* Background Image */}
         <Image
-          src="https://images.squarespace-cdn.com/content/v1/65c68b448f262639612c15e4/9e7cb3b9-7df8-4e7e-91b8-dd4f4e78e3e5/P1133915-3.jpg"
+          src="/images/cta-bg.webp"
           alt="CTA background"
           fill
           className="object-cover"
